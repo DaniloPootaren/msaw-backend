@@ -1,0 +1,74 @@
+[
+  {
+    "constituency": 5,
+    "date_created": "2023-10-30T12:34:14.430Z",
+    "id": 1,
+    "inhabitant": "Low",
+    "name": "Triolet 1",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "zip_code": 11111
+  },
+  {
+    "constituency": 5,
+    "date_created": "2023-10-30T12:34:27.013Z",
+    "id": 2,
+    "inhabitant": "High",
+    "name": "Triolet 2",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "zip_code": 11101
+  },
+  {
+    "constituency": 5,
+    "date_created": "2023-10-31T11:15:26.608Z",
+    "id": 3,
+    "inhabitant": "Medium",
+    "name": "Mont Choisy",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "zip_code": 42542
+  },
+  {
+    "constituency": 2,
+    "date_created": "2023-10-31T11:17:20.343Z",
+    "id": 4,
+    "inhabitant": "High",
+    "name": "Plaine Verte",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "zip_code": 25244
+  },
+  {
+    "constituency": 17,
+    "date_created": "2023-10-31T11:20:18.711Z",
+    "id": 5,
+    "inhabitant": "Medium",
+    "name": "Trou Aux Cerfs",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "zip_code": 54235
+  },
+  {
+    "constituency": 21,
+    "date_created": "2023-10-31T11:22:17.429Z",
+    "id": 6,
+    "inhabitant": "Low",
+    "name": "Petit Gabriel",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "zip_code": 52752
+  },
+  {
+    "constituency": 9,
+    "date_created": "2023-11-06T11:32:04.648Z",
+    "id": 7,
+    "inhabitant": "Medium",
+    "name": "Flacq",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "zip_code": 57852
+  },
+  {
+    "constituency": 12,
+    "date_created": "2023-11-06T12:00:53.124Z",
+    "id": 8,
+    "inhabitant": "High",
+    "name": "Rose Belle",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "zip_code": 78577
+  }
+]

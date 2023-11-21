@@ -1,0 +1,220 @@
+[
+  {
+    "bookmark": null,
+    "user": null,
+    "role": null,
+    "collection": "directus_users",
+    "search": null,
+    "layout": "cards",
+    "layout_query": {
+      "cards": {
+        "sort": [
+          "email"
+        ],
+        "limit": 25
+      }
+    },
+    "layout_options": {
+      "cards": {
+        "icon": "account_circle",
+        "title": "{{ first_name }} {{ last_name }}",
+        "subtitle": "{{ email }}",
+        "size": 4
+      }
+    },
+    "refresh_interval": null,
+    "filter": null,
+    "icon": "bookmark",
+    "color": null
+  },
+  {
+    "bookmark": "All Surveys - Map View",
+    "user": null,
+    "role": null,
+    "collection": "survey_results",
+    "search": null,
+    "layout": "map",
+    "layout_query": {
+      "tabular": {
+        "page": 1,
+        "limit": 25,
+        "fields": [
+          "animal",
+          "dog_breed",
+          "survey_information",
+          "geo_location"
+        ]
+      },
+      "map": {
+        "limit": 1000
+      }
+    },
+    "layout_options": {
+      "map": {
+        "geometryField": "geo_location",
+        "cameraOptions": {
+          "center": {
+            "lng": 57.564385682194484,
+            "lat": -20.240028243722648
+          },
+          "zoom": 10.223443846605875,
+          "bearing": 0,
+          "pitch": 0,
+          "bbox": [
+            57.12623291816848,
+            -20.33932203022316,
+            58.00253844622165,
+            -20.140670968329417
+          ]
+        },
+        "clusterData": true
+      }
+    },
+    "refresh_interval": null,
+    "filter": null,
+    "icon": "bookmark",
+    "color": null
+  },
+  {
+    "bookmark": "All Rejected Surveys - Map View",
+    "user": null,
+    "role": null,
+    "collection": "survey_results",
+    "search": null,
+    "layout": "map",
+    "layout_query": {
+      "tabular": {
+        "limit": 25,
+        "page": 1,
+        "fields": [
+          "primary_image",
+          "has_microchip",
+          "microchip_serial",
+          "dog_breed.breed_name",
+          "sex",
+          "age",
+          "health_state",
+          "is_sterilized"
+        ]
+      },
+      "cards": {
+        "limit": 25
+      },
+      "map": {
+        "limit": 1000,
+        "page": 1
+      }
+    },
+    "layout_options": {
+      "tabular": {
+        "widths": {
+          "primary_image": 152.22222900390625,
+          "has_microchip": 140
+        }
+      },
+      "kanban": {
+        "groupField": "status",
+        "groupTitle": null,
+        "titleField": "microchip_serial"
+      },
+      "map": {
+        "geometryField": "geo_location",
+        "cameraOptions": {
+          "center": {
+            "lng": 57.50612401050023,
+            "lat": -20.261145627568183
+          },
+          "zoom": 9.64214226644705,
+          "bearing": 0,
+          "pitch": 0,
+          "bbox": [
+            57.09298701032969,
+            -20.533733747820108,
+            57.91926101066994,
+            -19.988077944533444
+          ]
+        },
+        "clusterData": true,
+        "displayTemplate": "{{survey_information.name}} - {{survey_information.constituencies.constituency_name}} - {{survey_information.region.name}} - {{survey_information.region.zip_code}}"
+      }
+    },
+    "refresh_interval": null,
+    "filter": {
+      "_and": [
+        {
+          "status": {
+            "_eq": "rejected"
+          }
+        },
+        {
+          "survey_information": {
+            "is_closed": {
+              "_eq": false
+            }
+          }
+        }
+      ]
+    },
+    "icon": "bookmark",
+    "color": null
+  },
+  {
+    "bookmark": "All Open Surveys - Map View",
+    "user": null,
+    "role": null,
+    "collection": "survey_results",
+    "search": null,
+    "layout": "map",
+    "layout_query": {
+      "tabular": {
+        "page": 1,
+        "limit": 25,
+        "fields": [
+          "animal",
+          "dog_breed",
+          "survey_information",
+          "geo_location"
+        ]
+      },
+      "map": {
+        "limit": 1000,
+        "page": 1
+      }
+    },
+    "layout_options": {
+      "map": {
+        "geometryField": "geo_location",
+        "cameraOptions": {
+          "center": {
+            "lng": 57.564385682194484,
+            "lat": -20.240028243722648
+          },
+          "zoom": 10.223443846605875,
+          "bearing": 0,
+          "pitch": 0,
+          "bbox": [
+            57.12623291816848,
+            -20.33932203022316,
+            58.00253844622165,
+            -20.140670968329417
+          ]
+        },
+        "clusterData": true
+      }
+    },
+    "refresh_interval": null,
+    "filter": {
+      "_and": [
+        {
+          "survey_information": {
+            "is_closed": {
+              "_eq": false
+            }
+          }
+        }
+      ]
+    },
+    "icon": "bookmark",
+    "color": null
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "breed_name": "Cane Corso",
+    "date_created": "2023-10-27T10:42:32.150Z",
+    "date_updated": "2023-10-31T07:20:01.184Z",
+    "id": 1
+  },
+  {
+    "breed_name": "Rottweller",
+    "date_created": "2023-10-27T10:42:37.016Z",
+    "date_updated": "2023-10-31T07:20:01.356Z",
+    "id": 2
+  },
+  {
+    "breed_name": "Husky",
+    "date_created": "2023-10-27T10:42:43.195Z",
+    "date_updated": "2023-10-31T07:20:01.508Z",
+    "id": 3
+  },
+  {
+    "breed_name": "Bulldog",
+    "date_created": "2023-10-27T10:42:49.061Z",
+    "date_updated": "2023-10-31T07:20:01.680Z",
+    "id": 4
+  },
+  {
+    "breed_name": "Golden Retriever",
+    "date_created": "2023-10-27T10:42:55.247Z",
+    "date_updated": "2023-10-31T07:20:01.848Z",
+    "id": 5
+  },
+  {
+    "breed_name": "German Shepherd",
+    "date_created": "2023-10-27T10:43:00.652Z",
+    "date_updated": "2023-10-31T07:20:02.043Z",
+    "id": 6
+  },
+  {
+    "breed_name": "Labrador Retriever",
+    "date_created": "2023-10-27T10:43:07.453Z",
+    "date_updated": "2023-10-31T07:20:02.360Z",
+    "id": 7
+  },
+  {
+    "breed_name": "Swiss Shepherd",
+    "date_created": "2023-10-27T11:11:37.283Z",
+    "date_updated": "2023-10-31T07:20:02.521Z",
+    "id": 8
+  },
+  {
+    "breed_name": "Dog",
+    "date_created": "2023-10-30T07:04:04.936Z",
+    "date_updated": "2023-10-31T07:20:02.698Z",
+    "id": 9
+  },
+  {
+    "breed_name": "fgfg",
+    "date_created": "2023-10-30T12:44:06.000Z",
+    "date_updated": "2023-10-31T07:20:02.879Z",
+    "id": 10
+  }
+]

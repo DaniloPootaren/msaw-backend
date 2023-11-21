@@ -1,0 +1,863 @@
+[
+  {
+    "collection": "breeds",
+    "meta": {
+      "collection": "breeds",
+      "icon": null,
+      "note": null,
+      "display_template": "{{breed_name}}",
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": null,
+      "archive_app_filter": true,
+      "archive_value": null,
+      "unarchive_value": null,
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 4,
+      "group": "system_parameters",
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "breeds",
+      "sql": "CREATE TABLE `breeds` (`breed_name` varchar(255) null default null, `date_created` datetime null default null, `date_updated` datetime null default null, `id` integer not null primary key autoincrement)"
+    }
+  },
+  {
+    "collection": "constituencies",
+    "meta": {
+      "collection": "constituencies",
+      "icon": null,
+      "note": null,
+      "display_template": null,
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": null,
+      "archive_app_filter": true,
+      "archive_value": null,
+      "unarchive_value": null,
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 2,
+      "group": "system_parameters",
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "constituencies",
+      "sql": "CREATE TABLE `constituencies` (`constituency_name` varchar(255) null default null, `date_created` datetime null default null, `date_updated` datetime null default null, `id` integer not null primary key autoincrement)"
+    }
+  },
+  {
+    "collection": "contact_and_useful_information",
+    "meta": {
+      "collection": "contact_and_useful_information",
+      "icon": null,
+      "note": null,
+      "display_template": null,
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": "status",
+      "archive_app_filter": true,
+      "archive_value": "archived",
+      "unarchive_value": "draft",
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 5,
+      "group": null,
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "contact_and_useful_information",
+      "sql": "CREATE TABLE `contact_and_useful_information` (`id` integer not null primary key autoincrement, `status` varchar(255) not null default 'draft', `title` varchar(255) null, `description` text null)"
+    }
+  },
+  {
+    "collection": "news",
+    "meta": {
+      "collection": "news",
+      "icon": null,
+      "note": null,
+      "display_template": null,
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": "status",
+      "archive_app_filter": true,
+      "archive_value": "archived",
+      "unarchive_value": "draft",
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 3,
+      "group": null,
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "news",
+      "sql": "CREATE TABLE \"news\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `status` varchar(255) NOT NULL DEFAULT 'draft', `date_created` datetime NULL, `date_updated` datetime NULL, `title` varchar(255) NULL, `description` text NULL, `news_image` char(36) NULL, `published_date` datetime NULL DEFAULT null, CONSTRAINT `news_news_image_foreign` FOREIGN KEY (`news_image`) REFERENCES `directus_files` (`id`) ON DELETE SET NULL)"
+    }
+  },
+  {
+    "collection": "news_directus_roles",
+    "meta": {
+      "collection": "news_directus_roles",
+      "icon": "import_export",
+      "note": null,
+      "display_template": null,
+      "hidden": true,
+      "singleton": false,
+      "translations": null,
+      "archive_field": null,
+      "archive_app_filter": true,
+      "archive_value": null,
+      "unarchive_value": null,
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 9,
+      "group": null,
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "news_directus_roles",
+      "sql": "CREATE TABLE \"news_directus_roles\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `news_id` integer NULL, `directus_roles_id` char(36) NULL, CONSTRAINT `news_directus_roles_directus_roles_id_foreign` FOREIGN KEY (`directus_roles_id`) REFERENCES `directus_roles` (`id`) ON DELETE SET NULL, CONSTRAINT `news_directus_roles_news_id_foreign` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE SET NULL)"
+    }
+  },
+  {
+    "collection": "news_directus_users",
+    "meta": {
+      "collection": "news_directus_users",
+      "icon": "import_export",
+      "note": null,
+      "display_template": null,
+      "hidden": true,
+      "singleton": false,
+      "translations": null,
+      "archive_field": null,
+      "archive_app_filter": true,
+      "archive_value": null,
+      "unarchive_value": null,
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 7,
+      "group": null,
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "news_directus_users",
+      "sql": "CREATE TABLE \"news_directus_users\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `news_id` integer NULL, `directus_users_id` char(36) NULL, CONSTRAINT `news_directus_users_directus_users_id_foreign` FOREIGN KEY (`directus_users_id`) REFERENCES `directus_users` (`id`) ON DELETE SET NULL, CONSTRAINT `news_directus_users_news_id_foreign` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE SET NULL)"
+    }
+  },
+  {
+    "collection": "notifications",
+    "meta": {
+      "collection": "notifications",
+      "icon": null,
+      "note": null,
+      "display_template": null,
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": "status",
+      "archive_app_filter": true,
+      "archive_value": "archived",
+      "unarchive_value": "draft",
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 4,
+      "group": null,
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "notifications",
+      "sql": "CREATE TABLE \"notifications\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `status` varchar(255) NOT NULL DEFAULT 'draft', `date_created` datetime NULL, `date_updated` datetime NULL, `title` varchar(255) NULL, `description` text NULL, `published_date` datetime NULL, `expiry_date` datetime NULL, `is_read` boolean NULL DEFAULT '1', `staff` char(36) NULL, `notification_type` varchar(255) null, CONSTRAINT `notifications_staff_foreign` FOREIGN KEY (`staff`) REFERENCES `directus_users` (`id`) ON DELETE SET NULL)"
+    }
+  },
+  {
+    "collection": "notifications_directus_users",
+    "meta": {
+      "collection": "notifications_directus_users",
+      "icon": "import_export",
+      "note": null,
+      "display_template": null,
+      "hidden": true,
+      "singleton": false,
+      "translations": null,
+      "archive_field": null,
+      "archive_app_filter": true,
+      "archive_value": null,
+      "unarchive_value": null,
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 8,
+      "group": null,
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "notifications_directus_users",
+      "sql": "CREATE TABLE \"notifications_directus_users\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `notifications_id` integer NULL, `directus_users_id` char(36) NULL, CONSTRAINT `notifications_directus_users_directus_users_id_foreign` FOREIGN KEY (`directus_users_id`) REFERENCES `directus_users` (`id`) ON DELETE SET NULL, CONSTRAINT `notifications_directus_users_notifications_id_foreign` FOREIGN KEY (`notifications_id`) REFERENCES `notifications` (`id`) ON DELETE SET NULL)"
+    }
+  },
+  {
+    "collection": "owned_dogs",
+    "meta": {
+      "collection": "owned_dogs",
+      "icon": "supervised_user_circle",
+      "note": null,
+      "display_template": null,
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": null,
+      "archive_app_filter": true,
+      "archive_value": null,
+      "unarchive_value": null,
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 2,
+      "group": null,
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": null
+  },
+  {
+    "collection": "owned_survey_results",
+    "meta": {
+      "collection": "owned_survey_results",
+      "icon": null,
+      "note": null,
+      "display_template": null,
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": null,
+      "archive_app_filter": true,
+      "archive_value": null,
+      "unarchive_value": null,
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 1,
+      "group": "owned_dogs",
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "owned_survey_results",
+      "sql": "CREATE TABLE \"owned_survey_results\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `user_created` char(36) NULL, `date_created` datetime NULL, `user_updated` char(36) NULL, `date_updated` datetime NULL, `gender` varchar(255) NULL, `age_group` varchar(255) NULL, `monthly_income_status_of_earner` varchar(255) NULL, `education` varchar(255) NULL, `How_many_pet_dogs__do_you_have` varchar(255) NULL, `How_many_male_and_female_dogs_do_you_have` varchar(255) NULL, `are_your_pets_registered` varchar(255) NULL, `are_your_pets_sterilized` varchar(255) NULL, `Which_veterinary_doctor_do_you_visit_for_your_pets` varchar(255) NULL, `Do_you_know_that_the_MSAW_offers_free_sterilsation_for_your_dog` varchar(255) NULL, `do_you_have_secured_place_for_your_pets_at_your_place` varchar(255) NULL, `are_your_pets_let_free_on_the_streets` varchar(255) NULL, `have_you_ever_had_a_pet_which_got_lost` varchar(255) NULL, `have_you_ever_found_yourself_in_a_situation_where_you_had_to_discard_a_pet` varchar(255) NULL, `if_yes_state_which_reason` text NULL, `are_there_stray_dogs_near_your_home_place_of_work` varchar(255) NULL, `are_you_scared_of_stray_dogs` varchar(255) NULL, `if_yes_state_reason_why` text NULL, `have_you_ever_fed_or_cared_for_a_stray_dog` varchar(255) NULL, `have_you_ever_adopted_a_pet_from_a_nonprofit_organisation` varchar(255) NULL, `do_you_think_that_stray_dogs_should_be_removed_from_the_streets` varchar(255) NULL, `have_you_heard_of_the_CNR_project` varchar(255) NULL, `do_you_think_that_the_stray_should_be_released_back_to_their_place_after_sterilisation` varchar(255) NULL, `do_you_know_that_MSAW_is_Ex_MSPCA` varchar(255) NULL, `what_is_your_opinion_about_the_MSAW` text NULL, `what_are_your_suggestions_to_the_MSAW` text NULL, `geo_location` json NULL, `location` text NULL, `survey_information` integer NULL, `staff` char(36) NULL, `status` varchar(255) NULL, `remarks` text NULL, `owner_id` char(36) NULL DEFAULT null, `age_of_pets` varchar(255) NULL, CONSTRAINT `owned_survey_results_user_created_foreign` FOREIGN KEY (`user_created`) REFERENCES `directus_users` (`id`), CONSTRAINT `owned_survey_results_user_updated_foreign` FOREIGN KEY (`user_updated`) REFERENCES `directus_users` (`id`), CONSTRAINT `owned_survey_results_survey_information_foreign` FOREIGN KEY (`survey_information`) REFERENCES `survey` (`id`) ON DELETE SET NULL, CONSTRAINT `owned_survey_results_staff_foreign` FOREIGN KEY (`staff`) REFERENCES `directus_users` (`id`) ON DELETE SET NULL)"
+    }
+  },
+  {
+    "collection": "region",
+    "meta": {
+      "collection": "region",
+      "icon": null,
+      "note": null,
+      "display_template": null,
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": null,
+      "archive_app_filter": true,
+      "archive_value": null,
+      "unarchive_value": null,
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 3,
+      "group": "system_parameters",
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "region",
+      "sql": "CREATE TABLE \"region\" (`constituency` integer NULL DEFAULT null, `date_created` datetime NULL DEFAULT null, `id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `inhabitant` varchar(255) NULL DEFAULT null, `name` varchar(255) NULL DEFAULT null, `user_created` char(36) NULL DEFAULT null, `zip_code` integer null, CONSTRAINT `region_constituency_foreign` FOREIGN KEY (`constituency`) REFERENCES `constituencies` (`id`) ON DELETE SET NULL, CONSTRAINT `region_user_created_foreign` FOREIGN KEY (`user_created`) REFERENCES `directus_users` (`id`) ON DELETE NO ACTION)"
+    }
+  },
+  {
+    "collection": "stray_dogs",
+    "meta": {
+      "collection": "stray_dogs",
+      "icon": "sound_detection_dog_barking",
+      "note": null,
+      "display_template": null,
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": null,
+      "archive_app_filter": true,
+      "archive_value": null,
+      "unarchive_value": null,
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 1,
+      "group": null,
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": null
+  },
+  {
+    "collection": "survey",
+    "meta": {
+      "collection": "survey",
+      "icon": null,
+      "note": null,
+      "display_template": "{{name}}",
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": "status",
+      "archive_app_filter": true,
+      "archive_value": "archived",
+      "unarchive_value": "draft",
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 1,
+      "group": "system_parameters",
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "survey",
+      "sql": "CREATE TABLE \"survey\" (`date_created` datetime NULL DEFAULT null, `date_updated` datetime NULL DEFAULT null, `id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `is_closed` boolean NULL DEFAULT '0', `name` varchar(255) NULL DEFAULT null, `region` integer NULL DEFAULT null, `start_date` date NULL DEFAULT null, `status` varchar(255) NOT NULL DEFAULT 'draft', `user_created` char(36) NULL DEFAULT null, `user_updated` char(36) NULL DEFAULT null, `staff` char(36) NULL, `end_date` datetime null, CONSTRAINT `survey_region_foreign` FOREIGN KEY (`region`) REFERENCES `region` (`id`) ON DELETE SET NULL, CONSTRAINT `survey_user_created_foreign` FOREIGN KEY (`user_created`) REFERENCES `directus_users` (`id`) ON DELETE NO ACTION, CONSTRAINT `survey_user_updated_foreign` FOREIGN KEY (`user_updated`) REFERENCES `directus_users` (`id`) ON DELETE NO ACTION, CONSTRAINT `survey_staff_foreign` FOREIGN KEY (`staff`) REFERENCES `directus_users` (`id`) ON DELETE SET NULL)"
+    }
+  },
+  {
+    "collection": "survey_results",
+    "meta": {
+      "collection": "survey_results",
+      "icon": null,
+      "note": null,
+      "display_template": null,
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": null,
+      "archive_app_filter": true,
+      "archive_value": null,
+      "unarchive_value": null,
+      "sort_field": null,
+      "accountability": "all",
+      "color": null,
+      "item_duplication_fields": null,
+      "sort": 1,
+      "group": "stray_dogs",
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": {
+      "name": "survey_results",
+      "sql": "CREATE TABLE \"survey_results\" (`age` varchar(255) NULL DEFAULT null, `animal` varchar(255) NOT NULL DEFAULT 'dog', `date_created` datetime NULL DEFAULT null, `date_updated` datetime NULL DEFAULT null, `dog_breed` integer NULL DEFAULT null, `geo_location` json NULL DEFAULT null, `has_microchip` boolean NULL DEFAULT '0', `health_state` varchar(255) NULL DEFAULT null, `id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `identifying_marks` text NULL DEFAULT null, `is_aggressive` varchar(255) NULL DEFAULT null, `is_living_with_other_dogs` varchar(255) NULL DEFAULT null, `is_sterilized` varchar(255) NULL DEFAULT null, `microchip_serial` varchar(255) NULL DEFAULT null, `primary_image` char(36) NULL DEFAULT null, `remarks` text NULL DEFAULT null, `sex` varchar(255) NULL DEFAULT null, `staff` char(36) NULL DEFAULT null, `status` varchar(255) NULL DEFAULT 'submitted', `survey_information` integer NULL DEFAULT null, `user_created` char(36) NULL DEFAULT null, `user_updated` char(36) NULL DEFAULT null, `weather_condition` varchar(255) NULL DEFAULT null, `Location` text NULL, `survey_id` char(36) NULL DEFAULT null, CONSTRAINT `survey_results_dog_breed_foreign` FOREIGN KEY (`dog_breed`) REFERENCES `breeds` (`id`) ON DELETE SET NULL, CONSTRAINT `survey_results_primary_image_foreign` FOREIGN KEY (`primary_image`) REFERENCES `directus_files` (`id`) ON DELETE SET NULL, CONSTRAINT `survey_results_staff_foreign` FOREIGN KEY (`staff`) REFERENCES `directus_users` (`id`) ON DELETE SET NULL, CONSTRAINT `survey_results_survey_information_foreign` FOREIGN KEY (`survey_information`) REFERENCES `survey` (`id`) ON DELETE SET NULL, CONSTRAINT `survey_results_user_created_foreign` FOREIGN KEY (`user_created`) REFERENCES `directus_users` (`id`) ON DELETE NO ACTION, CONSTRAINT `survey_results_user_updated_foreign` FOREIGN KEY (`user_updated`) REFERENCES `directus_users` (`id`) ON DELETE NO ACTION)"
+    }
+  },
+  {
+    "collection": "system_parameters",
+    "meta": {
+      "collection": "system_parameters",
+      "icon": "settings",
+      "note": null,
+      "display_template": null,
+      "hidden": false,
+      "singleton": false,
+      "translations": null,
+      "archive_field": null,
+      "archive_app_filter": true,
+      "archive_value": null,
+      "unarchive_value": null,
+      "sort_field": null,
+      "accountability": "all",
+      "color": "#FFA439",
+      "item_duplication_fields": null,
+      "sort": 6,
+      "group": null,
+      "collapse": "open",
+      "preview_url": null,
+      "versioning": false
+    },
+    "schema": null
+  },
+  {
+    "collection": "directus_activity",
+    "meta": {
+      "system": true,
+      "collection": "directus_activity",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_activity",
+      "translations": null,
+      "display_template": null,
+      "accountability": null
+    },
+    "schema": {
+      "name": "directus_activity",
+      "sql": "CREATE TABLE \"directus_activity\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `action` varchar(45) NOT NULL, `user` char(36), `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `ip` varchar(50), `user_agent` varchar(255), `collection` varchar(64) NOT NULL, `item` varchar(255) NOT NULL, `comment` text, `origin` varchar(255) null)"
+    }
+  },
+  {
+    "collection": "directus_collections",
+    "meta": {
+      "system": true,
+      "collection": "directus_collections",
+      "hidden": false,
+      "singleton": false,
+      "icon": "list_alt",
+      "note": "$t:directus_collection.directus_collections",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_collections",
+      "sql": "CREATE TABLE \"directus_collections\" (`collection` varchar(64) NOT NULL, `icon` varchar(30), `note` text, `display_template` varchar(255), `hidden` boolean NOT NULL DEFAULT '0', `singleton` boolean NOT NULL DEFAULT '0', `translations` json, `archive_field` varchar(64), `archive_app_filter` boolean NOT NULL DEFAULT '1', `archive_value` varchar(255), `unarchive_value` varchar(255), `sort_field` varchar(64), `accountability` varchar(255) DEFAULT 'all', `color` varchar(255) NULL, `item_duplication_fields` json NULL, `sort` integer, `group` varchar(64), `collapse` varchar(255) NOT NULL DEFAULT 'open', `preview_url` varchar(255) null, `versioning` boolean not null default '0', PRIMARY KEY (`collection`), FOREIGN KEY (`group`) REFERENCES `directus_collections` (`collection`))"
+    }
+  },
+  {
+    "collection": "directus_fields",
+    "meta": {
+      "system": true,
+      "collection": "directus_fields",
+      "hidden": false,
+      "singleton": false,
+      "icon": "input",
+      "note": "$t:directus_collection.directus_fields",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_fields",
+      "sql": "CREATE TABLE \"directus_fields\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `collection` varchar(64) NOT NULL, `field` varchar(64) NOT NULL, `special` varchar(64), `interface` varchar(64), `options` json, `display` varchar(64), `display_options` json, `readonly` boolean NOT NULL DEFAULT '0', `hidden` boolean NOT NULL DEFAULT '0', `sort` integer, `width` varchar(30) DEFAULT 'full', `translations` json, `note` text, `conditions` json, `required` boolean DEFAULT '0', `group` varchar(64), `validation` json, `validation_message` text)"
+    }
+  },
+  {
+    "collection": "directus_files",
+    "meta": {
+      "system": true,
+      "collection": "directus_files",
+      "hidden": false,
+      "singleton": false,
+      "icon": "folder",
+      "note": "$t:directus_collection.directus_files",
+      "translations": null,
+      "display_template": "{{ $thumbnail }} {{ title }}",
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_files",
+      "sql": "CREATE TABLE \"directus_files\" (`id` char(36) NOT NULL, `storage` varchar(255) NOT NULL, `filename_disk` varchar(255), `filename_download` varchar(255) NOT NULL, `title` varchar(255), `type` varchar(255), `folder` char(36), `uploaded_by` char(36), `uploaded_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `modified_by` char(36), `modified_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `charset` varchar(50), `filesize` bigint DEFAULT null, `width` integer, `height` integer, `duration` integer, `embed` varchar(200), `description` text, `location` text, `tags` text, `metadata` json, PRIMARY KEY (`id`), FOREIGN KEY (`uploaded_by`) REFERENCES `directus_users` (`id`), FOREIGN KEY (`modified_by`) REFERENCES `directus_users` (`id`), FOREIGN KEY (`folder`) REFERENCES `directus_folders` (`id`) ON DELETE SET NULL)"
+    }
+  },
+  {
+    "collection": "directus_folders",
+    "meta": {
+      "system": true,
+      "collection": "directus_folders",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_folders",
+      "translations": null,
+      "display_template": "{{ name }}",
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_folders",
+      "sql": "CREATE TABLE \"directus_folders\" (`id` char(36) NOT NULL, `name` varchar(255) NOT NULL, `parent` char(36), PRIMARY KEY (`id`), FOREIGN KEY (`parent`) REFERENCES `directus_folders` (`id`))"
+    }
+  },
+  {
+    "collection": "directus_migrations",
+    "meta": {
+      "system": true,
+      "collection": "directus_migrations",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_migrations",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_migrations",
+      "sql": "CREATE TABLE `directus_migrations` (`version` varchar(255) not null, `name` varchar(255) not null, `timestamp` datetime default CURRENT_TIMESTAMP, primary key (`version`))"
+    }
+  },
+  {
+    "collection": "directus_permissions",
+    "meta": {
+      "system": true,
+      "collection": "directus_permissions",
+      "hidden": false,
+      "singleton": false,
+      "icon": "admin_panel_settings",
+      "note": "$t:directus_collection.directus_permissions",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_permissions",
+      "sql": "CREATE TABLE \"directus_permissions\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `role` char(36), `collection` varchar(64) NOT NULL, `action` varchar(10) NOT NULL, `permissions` json, `validation` json, `presets` json, `fields` text, FOREIGN KEY (`role`) REFERENCES `directus_roles` (`id`) ON DELETE CASCADE)"
+    }
+  },
+  {
+    "collection": "directus_presets",
+    "meta": {
+      "system": true,
+      "collection": "directus_presets",
+      "hidden": false,
+      "singleton": false,
+      "icon": "bookmark",
+      "note": "$t:directus_collection.directus_presets",
+      "translations": null,
+      "display_template": null,
+      "accountability": null
+    },
+    "schema": {
+      "name": "directus_presets",
+      "sql": "CREATE TABLE \"directus_presets\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `bookmark` varchar(255), `user` char(36), `role` char(36), `collection` varchar(64), `search` varchar(100), `layout` varchar(100) DEFAULT 'tabular', `layout_query` json, `layout_options` json, `refresh_interval` integer, `filter` json, `icon` varchar(30) DEFAULT 'bookmark', `color` varchar(255) NULL, FOREIGN KEY (`user`) REFERENCES `directus_users` (`id`) ON DELETE CASCADE, FOREIGN KEY (`role`) REFERENCES `directus_roles` (`id`) ON DELETE CASCADE)"
+    }
+  },
+  {
+    "collection": "directus_relations",
+    "meta": {
+      "system": true,
+      "collection": "directus_relations",
+      "hidden": false,
+      "singleton": false,
+      "icon": "merge_type",
+      "note": "$t:directus_collection.directus_relations",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_relations",
+      "sql": "CREATE TABLE \"directus_relations\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `many_collection` varchar(64) NOT NULL, `many_field` varchar(64) NOT NULL, `one_collection` varchar(64), `one_field` varchar(64), `one_collection_field` varchar(64), `one_allowed_collections` text, `junction_field` varchar(64), `sort_field` varchar(64), `one_deselect_action` varchar(255) NOT NULL DEFAULT 'nullify')"
+    }
+  },
+  {
+    "collection": "directus_revisions",
+    "meta": {
+      "system": true,
+      "collection": "directus_revisions",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_revisions",
+      "translations": null,
+      "display_template": null,
+      "accountability": null
+    },
+    "schema": {
+      "name": "directus_revisions",
+      "sql": "CREATE TABLE \"directus_revisions\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `activity` integer NOT NULL, `collection` varchar(64) NOT NULL, `item` varchar(255) NOT NULL, `data` json, `delta` json, `parent` integer, `version` char(36), FOREIGN KEY (`parent`) REFERENCES `directus_revisions` (`id`), FOREIGN KEY (`activity`) REFERENCES `directus_activity` (`id`) ON DELETE CASCADE, FOREIGN KEY (`version`) REFERENCES `directus_versions` (`id`) ON DELETE CASCADE)"
+    }
+  },
+  {
+    "collection": "directus_roles",
+    "meta": {
+      "system": true,
+      "collection": "directus_roles",
+      "hidden": false,
+      "singleton": false,
+      "icon": "supervised_user_circle",
+      "note": "$t:directus_collection.directus_roles",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_roles",
+      "sql": "CREATE TABLE \"directus_roles\" (`id` char(36) NOT NULL, `name` varchar(100) NOT NULL, `icon` varchar(30) NOT NULL DEFAULT 'supervised_user_circle', `description` text, `ip_access` text, `enforce_tfa` boolean NOT NULL DEFAULT '0', `admin_access` boolean NOT NULL DEFAULT '0', `app_access` boolean NOT NULL DEFAULT '1', PRIMARY KEY (`id`))"
+    }
+  },
+  {
+    "collection": "directus_sessions",
+    "meta": {
+      "system": true,
+      "collection": "directus_sessions",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_sessions",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_sessions",
+      "sql": "CREATE TABLE \"directus_sessions\" (`token` varchar(64) NOT NULL, `user` char(36), `expires` datetime NOT NULL, `ip` varchar(255), `user_agent` varchar(255), `share` char(36), `origin` varchar(255) null, PRIMARY KEY (`token`), FOREIGN KEY (`user`) REFERENCES `directus_users` (`id`) ON DELETE CASCADE, FOREIGN KEY (`share`) REFERENCES `directus_shares` (`id`) ON DELETE CASCADE)"
+    }
+  },
+  {
+    "collection": "directus_settings",
+    "meta": {
+      "system": true,
+      "collection": "directus_settings",
+      "hidden": false,
+      "singleton": true,
+      "icon": null,
+      "note": "$t:directus_collection.directus_settings",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_settings",
+      "sql": "CREATE TABLE \"directus_settings\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `project_name` varchar(100) NOT NULL DEFAULT 'Directus', `project_url` varchar(255), `project_color` varchar(255) NOT NULL DEFAULT '#6644FF', `project_logo` char(36), `public_foreground` char(36), `public_background` char(36), `public_note` text, `auth_login_attempts` integer DEFAULT '25', `auth_password_policy` varchar(100), `storage_asset_transform` varchar(7) DEFAULT 'all', `storage_asset_presets` json, `custom_css` text, `storage_default_folder` char(36), `basemaps` json, `mapbox_key` varchar(255), `module_bar` json, `project_descriptor` varchar(100) NULL, `default_language` varchar(255) NOT NULL DEFAULT 'en-US', `custom_aspect_ratios` json, `public_favicon` char(36), `default_appearance` varchar(255) NOT NULL DEFAULT 'auto', `default_theme_light` varchar(255), `theme_light_overrides` json, `default_theme_dark` varchar(255), `theme_dark_overrides` json, FOREIGN KEY (`project_logo`) REFERENCES `directus_files` (`id`), FOREIGN KEY (`public_foreground`) REFERENCES `directus_files` (`id`), FOREIGN KEY (`public_background`) REFERENCES `directus_files` (`id`), CONSTRAINT `directus_settings_storage_default_folder_foreign` FOREIGN KEY (`storage_default_folder`) REFERENCES `directus_folders` (`id`) ON DELETE SET NULL, FOREIGN KEY (`public_favicon`) REFERENCES `directus_files` (`id`))"
+    }
+  },
+  {
+    "collection": "directus_users",
+    "meta": {
+      "system": true,
+      "collection": "directus_users",
+      "hidden": false,
+      "singleton": false,
+      "icon": "people_alt",
+      "note": "$t:directus_collection.directus_users",
+      "translations": null,
+      "display_template": "{{ first_name }} {{ last_name }}",
+      "accountability": "all",
+      "archive_field": "status",
+      "archive_value": "archived",
+      "unarchive_value": "draft"
+    },
+    "schema": {
+      "name": "directus_users",
+      "sql": "CREATE TABLE \"directus_users\" (`id` char(36) NOT NULL, `first_name` varchar(50), `last_name` varchar(50), `email` varchar(128), `password` varchar(255), `location` varchar(255), `title` varchar(50), `description` text, `tags` json, `avatar` char(36), `language` varchar(255) DEFAULT null, `tfa_secret` varchar(255), `status` varchar(16) NOT NULL DEFAULT 'active', `role` char(36), `token` varchar(255), `last_access` datetime, `last_page` varchar(255), `provider` varchar(128) NOT NULL DEFAULT 'default', `external_identifier` varchar(255), `auth_data` json, `email_notifications` boolean DEFAULT '1', `appearance` varchar(255), `theme_dark` varchar(255), `theme_light` varchar(255), `theme_light_overrides` json, `theme_dark_overrides` json, `surname_at_birth` varchar(255) NULL, `gender` varchar(255) NULL, `citizen_of_mauritius` varchar(255) NULL, `nic` varchar(255) NULL, `address` varchar(255) NULL, `town` varchar(255) NULL, `fixed_line_number` varchar(255) NULL DEFAULT null, `mobile_number` varchar(255) NULL, `date_of_birth` varchar(255) null, PRIMARY KEY (`id`), FOREIGN KEY (`role`) REFERENCES `directus_roles` (`id`) ON DELETE SET NULL)"
+    }
+  },
+  {
+    "collection": "directus_webhooks",
+    "meta": {
+      "system": true,
+      "collection": "directus_webhooks",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_webhooks",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_webhooks",
+      "sql": "CREATE TABLE \"directus_webhooks\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `name` varchar(255) NOT NULL, `method` varchar(10) NOT NULL DEFAULT 'POST', `url` varchar(255) NOT NULL, `status` varchar(10) NOT NULL DEFAULT 'active', `data` boolean NOT NULL DEFAULT '1', `actions` varchar(100) NOT NULL, `collections` varchar(255) NOT NULL, `headers` json)"
+    }
+  },
+  {
+    "collection": "directus_dashboards",
+    "meta": {
+      "system": true,
+      "collection": "directus_dashboards",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_dashboards",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_dashboards",
+      "sql": "CREATE TABLE `directus_dashboards` (`id` char(36) not null, `name` varchar(255) not null, `icon` varchar(30) not null default 'dashboard', `note` text, `date_created` datetime default CURRENT_TIMESTAMP, `user_created` char(36), `color` varchar(255) null, foreign key(`user_created`) references `directus_users`(`id`) on delete SET NULL, primary key (`id`))"
+    }
+  },
+  {
+    "collection": "directus_panels",
+    "meta": {
+      "system": true,
+      "collection": "directus_panels",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_panels",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_panels",
+      "sql": "CREATE TABLE \"directus_panels\" (`id` char(36) NOT NULL, `dashboard` char(36) NOT NULL, `name` varchar(255), `icon` varchar(30) DEFAULT null, `color` varchar(10), `show_header` boolean NOT NULL DEFAULT '0', `note` text, `type` varchar(255) NOT NULL, `position_x` integer NOT NULL, `position_y` integer NOT NULL, `width` integer NOT NULL, `height` integer NOT NULL, `options` json, `date_created` datetime DEFAULT CURRENT_TIMESTAMP, `user_created` char(36), FOREIGN KEY (`dashboard`) REFERENCES `directus_dashboards` (`id`) ON DELETE CASCADE, FOREIGN KEY (`user_created`) REFERENCES `directus_users` (`id`) ON DELETE SET NULL, PRIMARY KEY (`id`))"
+    }
+  },
+  {
+    "collection": "directus_notifications",
+    "meta": {
+      "system": true,
+      "collection": "directus_notifications",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_notifications",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_notifications",
+      "sql": "CREATE TABLE \"directus_notifications\" (`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL, `timestamp` datetime DEFAULT CURRENT_TIMESTAMP, `status` varchar(255) DEFAULT 'inbox', `recipient` char(36) NOT NULL, `sender` char(36), `subject` varchar(255) NOT NULL, `message` text, `collection` varchar(64), `item` varchar(255), FOREIGN KEY (`recipient`) REFERENCES `directus_users` (`id`) ON DELETE CASCADE, FOREIGN KEY (`sender`) REFERENCES `directus_users` (`id`))"
+    }
+  },
+  {
+    "collection": "directus_shares",
+    "meta": {
+      "system": true,
+      "collection": "directus_shares",
+      "hidden": false,
+      "singleton": false,
+      "icon": "share",
+      "note": "$t:directus_collection.directus_shares",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_shares",
+      "sql": "CREATE TABLE \"directus_shares\" (`id` char(36) NOT NULL, `name` varchar(255), `collection` varchar(64) NOT NULL, `item` varchar(255) NOT NULL, `role` char(36), `password` varchar(255), `user_created` char(36), `date_created` datetime DEFAULT CURRENT_TIMESTAMP, `date_start` datetime NULL DEFAULT null, `date_end` datetime NULL DEFAULT null, `times_used` integer DEFAULT '0', `max_uses` integer, FOREIGN KEY (`collection`) REFERENCES `directus_collections` (`collection`) ON DELETE CASCADE, FOREIGN KEY (`role`) REFERENCES `directus_roles` (`id`) ON DELETE CASCADE, FOREIGN KEY (`user_created`) REFERENCES `directus_users` (`id`) ON DELETE SET NULL, PRIMARY KEY (`id`))"
+    }
+  },
+  {
+    "collection": "directus_flows",
+    "meta": {
+      "system": true,
+      "collection": "directus_flows",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_flows",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_flows",
+      "sql": "CREATE TABLE `directus_flows` (`id` char(36) not null, `name` varchar(255) not null, `icon` varchar(30), `color` varchar(255) null, `description` text, `status` varchar(255) not null default 'active', `trigger` varchar(255), `accountability` varchar(255) default 'all', `options` json, `operation` char(36), `date_created` datetime default CURRENT_TIMESTAMP, `user_created` char(36), foreign key(`user_created`) references `directus_users`(`id`) on delete SET NULL, primary key (`id`))"
+    }
+  },
+  {
+    "collection": "directus_operations",
+    "meta": {
+      "system": true,
+      "collection": "directus_operations",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_operations",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_operations",
+      "sql": "CREATE TABLE `directus_operations` (`id` char(36) not null, `name` varchar(255), `key` varchar(255) not null, `type` varchar(255) not null, `position_x` integer not null, `position_y` integer not null, `options` json, `resolve` char(36), `reject` char(36), `flow` char(36) not null, `date_created` datetime default CURRENT_TIMESTAMP, `user_created` char(36), foreign key(`resolve`) references `directus_operations`(`id`), foreign key(`reject`) references `directus_operations`(`id`), foreign key(`flow`) references `directus_flows`(`id`) on delete CASCADE, foreign key(`user_created`) references `directus_users`(`id`) on delete SET NULL, primary key (`id`))"
+    }
+  },
+  {
+    "collection": "directus_translations",
+    "meta": {
+      "system": true,
+      "collection": "directus_translations",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_translations",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_translations",
+      "sql": "CREATE TABLE `directus_translations` (`id` char(36) not null, `language` varchar(255) not null, `key` varchar(255) not null, `value` text not null, primary key (`id`))"
+    }
+  },
+  {
+    "collection": "directus_versions",
+    "meta": {
+      "system": true,
+      "collection": "directus_versions",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_versions",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_versions",
+      "sql": "CREATE TABLE `directus_versions` (`id` char(36) not null, `key` varchar(64) not null, `name` varchar(255), `collection` varchar(64) not null, `item` varchar(255) not null, `hash` varchar(255), `date_created` datetime default CURRENT_TIMESTAMP, `date_updated` datetime default CURRENT_TIMESTAMP, `user_created` char(36), `user_updated` char(36), foreign key(`collection`) references `directus_collections`(`collection`) on delete CASCADE, foreign key(`user_created`) references `directus_users`(`id`) on delete SET NULL, foreign key(`user_updated`) references `directus_users`(`id`), primary key (`id`))"
+    }
+  },
+  {
+    "collection": "directus_extensions",
+    "meta": {
+      "system": true,
+      "collection": "directus_extensions",
+      "hidden": false,
+      "singleton": false,
+      "icon": null,
+      "note": "$t:directus_collection.directus_extensions",
+      "translations": null,
+      "display_template": null,
+      "accountability": "all"
+    },
+    "schema": {
+      "name": "directus_extensions",
+      "sql": "CREATE TABLE `directus_extensions` (`name` varchar(255) not null, `enabled` boolean not null default '1', primary key (`name`))"
+    }
+  }
+]

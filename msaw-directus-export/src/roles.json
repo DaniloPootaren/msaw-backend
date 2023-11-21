@@ -1,0 +1,46 @@
+[
+  {
+    "id": "2f89ccce-8440-4242-a939-6a570e0a358d",
+    "name": "Administrator",
+    "icon": "verified",
+    "description": "$t:admin_description",
+    "ip_access": null,
+    "enforce_tfa": false,
+    "admin_access": true,
+    "app_access": true,
+    "users": null
+  },
+  {
+    "id": "5ecc9591-f653-44f2-a1d0-ee6b645218be",
+    "name": "Survey Assistant",
+    "icon": "supervised_user_circle",
+    "description": null,
+    "ip_access": null,
+    "enforce_tfa": false,
+    "admin_access": false,
+    "app_access": true,
+    "users": null
+  },
+  {
+    "id": "8edc8b10-7ec9-4327-9edb-3e20601e53e5",
+    "name": "Dog Catcher",
+    "icon": "supervised_user_circle",
+    "description": null,
+    "ip_access": null,
+    "enforce_tfa": false,
+    "admin_access": false,
+    "app_access": true,
+    "users": null
+  },
+  {
+    "id": "fb9f53f0-69b0-4d99-b857-43100fed7e14",
+    "name": "MSAW Officer",
+    "icon": "supervised_user_circle",
+    "description": null,
+    "ip_access": null,
+    "enforce_tfa": false,
+    "admin_access": false,
+    "app_access": true,
+    "users": null
+  }
+]

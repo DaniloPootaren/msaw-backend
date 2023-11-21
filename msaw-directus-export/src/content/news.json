@@ -1,0 +1,45 @@
+[
+  {
+    "id": 4,
+    "status": "published",
+    "date_created": "2023-11-07T05:41:03.241Z",
+    "date_updated": "2023-11-10T10:39:43.331Z",
+    "title": "Survey Assigned to undefined undefined",
+    "description": "Survey Rose belle",
+    "news_image": "dfc620d4-a55b-48bf-8e46-e2269872a168",
+    "published_date": "2023-11-07T05:41:03",
+    "user_role": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "id": 10,
+    "status": "published",
+    "date_created": "2023-11-07T06:41:09.898Z",
+    "date_updated": "2023-11-10T10:41:13.244Z",
+    "title": "Survey Assigned to undefined undefined",
+    "description": "Survey Bel Air",
+    "news_image": "f1e7bfa7-9b7a-4be1-8d28-cbf9310fca09",
+    "published_date": "2023-11-07T10:41:09",
+    "user_role": [
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "id": 14,
+    "status": "published",
+    "date_created": "2023-11-07T09:33:39.342Z",
+    "date_updated": "2023-11-07T09:35:24.794Z",
+    "title": "Survey Assigned to undefined undefined",
+    "description": "Survey Vacoas",
+    "news_image": null,
+    "published_date": "2023-11-07T13:33:39",
+    "user_role": []
+  }
+]

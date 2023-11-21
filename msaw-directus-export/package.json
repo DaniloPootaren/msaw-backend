@@ -1,0 +1,11 @@
+{
+  "name": "directus-template-msaw-template",
+  "templateName": "msaw-template",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "src"
+  ]
+}

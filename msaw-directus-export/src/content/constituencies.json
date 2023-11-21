@@ -1,0 +1,163 @@
+[
+  {
+    "constituency_name": "Grand River North West and Port Louis West",
+    "date_created": "2023-10-27T10:08:34.127Z",
+    "date_updated": "2023-10-31T07:20:03.086Z",
+    "id": 1,
+    "region": []
+  },
+  {
+    "constituency_name": "Port Louis South and Port Louis Central",
+    "date_created": "2023-10-27T10:08:51.733Z",
+    "date_updated": "2023-10-31T07:20:03.423Z",
+    "id": 2,
+    "region": [
+      4
+    ]
+  },
+  {
+    "constituency_name": "Port Louis Maritime and Port Louis East",
+    "date_created": "2023-10-27T10:08:58.339Z",
+    "date_updated": "2023-10-31T07:20:03.628Z",
+    "id": 3,
+    "region": []
+  },
+  {
+    "constituency_name": "Port Louis North and Montagne Longue",
+    "date_created": "2023-10-27T10:09:10.419Z",
+    "date_updated": "2023-10-31T07:20:03.901Z",
+    "id": 4,
+    "region": []
+  },
+  {
+    "constituency_name": "Pamplemousses and Triolet",
+    "date_created": "2023-10-27T10:09:19.236Z",
+    "date_updated": "2023-10-31T07:20:04.100Z",
+    "id": 5,
+    "region": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "constituency_name": "Grand Baie and Poudre d’Or",
+    "date_created": "2023-10-27T10:09:28.526Z",
+    "date_updated": "2023-10-31T07:20:04.439Z",
+    "id": 6,
+    "region": []
+  },
+  {
+    "constituency_name": "Piton and Rivière du Rempart",
+    "date_created": "2023-10-27T10:09:35.427Z",
+    "date_updated": "2023-10-31T07:20:04.645Z",
+    "id": 7,
+    "region": []
+  },
+  {
+    "constituency_name": "Quartier Militaire and Moka",
+    "date_created": "2023-10-27T10:09:48.439Z",
+    "date_updated": "2023-10-31T07:20:04.863Z",
+    "id": 8,
+    "region": []
+  },
+  {
+    "constituency_name": "Flacq and Bon Accueil",
+    "date_created": "2023-10-27T10:09:56.259Z",
+    "date_updated": "2023-10-31T07:20:05.600Z",
+    "id": 9,
+    "region": [
+      7
+    ]
+  },
+  {
+    "constituency_name": "Montagne Blanche and Grand River South East",
+    "date_created": "2023-10-27T10:10:03.881Z",
+    "date_updated": "2023-10-31T07:20:05.799Z",
+    "id": 10,
+    "region": []
+  },
+  {
+    "constituency_name": "Vieux Grand Port and Rose Belle",
+    "date_created": "2023-10-27T10:10:15.356Z",
+    "date_updated": "2023-10-31T07:20:06.004Z",
+    "id": 11,
+    "region": []
+  },
+  {
+    "constituency_name": "Mahebourg and Plaine Magnien",
+    "date_created": "2023-10-27T10:10:24.322Z",
+    "date_updated": "2023-10-31T07:20:06.192Z",
+    "id": 12,
+    "region": [
+      8
+    ]
+  },
+  {
+    "constituency_name": "Rivière des Anguilles and Souillac",
+    "date_created": "2023-10-27T10:10:31.720Z",
+    "date_updated": "2023-10-31T07:20:06.377Z",
+    "id": 13,
+    "region": []
+  },
+  {
+    "constituency_name": "Savanne and Black River",
+    "date_created": "2023-10-27T10:10:37.818Z",
+    "date_updated": "2023-10-31T07:20:06.695Z",
+    "id": 14,
+    "region": []
+  },
+  {
+    "constituency_name": "La Caverne and Phoenix",
+    "date_created": "2023-10-27T10:10:44.793Z",
+    "date_updated": "2023-10-31T07:20:06.893Z",
+    "id": 15,
+    "region": []
+  },
+  {
+    "constituency_name": "Vacoas and Floreal",
+    "date_created": "2023-10-27T10:10:50.928Z",
+    "date_updated": "2023-10-31T07:20:07.077Z",
+    "id": 16,
+    "region": []
+  },
+  {
+    "constituency_name": "Curepipe and Midlands",
+    "date_created": "2023-10-27T10:10:58.481Z",
+    "date_updated": "2023-10-31T07:20:07.279Z",
+    "id": 17,
+    "region": [
+      5
+    ]
+  },
+  {
+    "constituency_name": "Belle Rose and Quatre Bornes",
+    "date_created": "2023-10-27T10:11:04.509Z",
+    "date_updated": "2023-10-31T07:20:07.484Z",
+    "id": 18,
+    "region": []
+  },
+  {
+    "constituency_name": "Stanley and Rose Hill",
+    "date_created": "2023-10-27T10:11:11.292Z",
+    "date_updated": "2023-10-31T07:20:07.792Z",
+    "id": 19,
+    "region": []
+  },
+  {
+    "constituency_name": "Beau Bassin and Petite Rivière",
+    "date_created": "2023-10-27T10:11:17.640Z",
+    "date_updated": "2023-10-31T07:20:07.985Z",
+    "id": 20,
+    "region": []
+  },
+  {
+    "constituency_name": "Rodrigues",
+    "date_created": "2023-10-27T10:11:23.131Z",
+    "date_updated": "2023-10-31T07:20:08.138Z",
+    "id": 21,
+    "region": [
+      6
+    ]
+  }
+]

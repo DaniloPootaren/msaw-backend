@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "news_id": 4,
+    "directus_roles_id": "2f89ccce-8440-4242-a939-6a570e0a358d"
+  },
+  {
+    "id": 2,
+    "news_id": 4,
+    "directus_roles_id": "5ecc9591-f653-44f2-a1d0-ee6b645218be"
+  },
+  {
+    "id": 3,
+    "news_id": 4,
+    "directus_roles_id": "8edc8b10-7ec9-4327-9edb-3e20601e53e5"
+  },
+  {
+    "id": 4,
+    "news_id": 4,
+    "directus_roles_id": "fb9f53f0-69b0-4d99-b857-43100fed7e14"
+  },
+  {
+    "id": 5,
+    "news_id": 10,
+    "directus_roles_id": "2f89ccce-8440-4242-a939-6a570e0a358d"
+  },
+  {
+    "id": 6,
+    "news_id": 10,
+    "directus_roles_id": "5ecc9591-f653-44f2-a1d0-ee6b645218be"
+  },
+  {
+    "id": 7,
+    "news_id": 10,
+    "directus_roles_id": "8edc8b10-7ec9-4327-9edb-3e20601e53e5"
+  },
+  {
+    "id": 8,
+    "news_id": 10,
+    "directus_roles_id": "fb9f53f0-69b0-4d99-b857-43100fed7e14"
+  }
+]

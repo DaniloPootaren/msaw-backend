@@ -1,0 +1,482 @@
+[
+  {
+    "id": "06beb0d0-cb19-4842-a2f8-afbf11ddd496",
+    "name": "Date Format",
+    "key": "date_format",
+    "type": "exec",
+    "position_x": 58,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(event, ctx) {\n\tconst currentDate = new Date();\n    currentDate.setHours(currentDate.getHours() + 4);\n    const formattedDate = currentDate.toISOString();\n    \n    //Get date one month from current date\n    //const current = new Date();\n    currentDate.setMonth(currentDate.getMonth() + 1);\n    const formattedMonth = currentDate.toISOString();\n \n\t\n    const payload = {\n      currentDate: formattedDate,\n      futureDate: formattedMonth,\n    };\n\n\treturn {payload};\n\n\n}"
+    },
+    "resolve": "0c2a3541-ebb3-4c14-8c2f-219dbd10b40d",
+    "reject": null,
+    "flow": "f46cb985-43f7-400a-a088-77c7b3e97d5a",
+    "date_created": "2023-11-13T11:15:14",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "0882a060-e2b3-47c4-9b0e-09ee6832ba3c",
+    "name": "Update Data",
+    "key": "item_update_gqwju",
+    "type": "item-update",
+    "position_x": 40,
+    "position_y": 1,
+    "options": {
+      "collection": "notifications",
+      "payload": {
+        "staff": "{{ $trigger.payload.staff }}",
+        "is_read": true
+      },
+      "key": null
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "b03af108-e528-4251-8304-75c65bb2d515",
+    "date_created": "2023-11-09T04:33:26",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "0c2a3541-ebb3-4c14-8c2f-219dbd10b40d",
+    "name": "Create Notification",
+    "key": "create_notification",
+    "type": "item-create",
+    "position_x": 76,
+    "position_y": 1,
+    "options": {
+      "collection": "notifications",
+      "payload": {
+        "status": "published",
+        "title": "{{ item_read_1ftz2.name }} is Rejected",
+        "description": "Survey name: {{ item_read_1ftz2.name }} which was assigned to you is rejected",
+        "published_date": "{{ date_format.payload.currentDate }}",
+        "expiry_date": "{{ date_format.payload.futureDate }}",
+        "staff": "{{item_read_1ftz2.staff}}",
+        "notification_type": "Survey Rejected"
+      }
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "f46cb985-43f7-400a-a088-77c7b3e97d5a",
+    "date_created": "2023-11-09T06:00:35",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "2d6277e0-3e1d-454b-ae8e-f0395fec3afc",
+    "name": "Update Data",
+    "key": "item_update_820dj",
+    "type": "item-update",
+    "position_x": 41,
+    "position_y": 1,
+    "options": {
+      "collection": "survey",
+      "payload": {
+        "is_closed": true
+      }
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "0b672575-b2d0-4dd0-b760-eacd11659d02",
+    "date_created": "2023-11-13T07:38:59",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "336964be-d102-4583-b242-5bc1fff5b557",
+    "name": "Read Data",
+    "key": "item_read_8xt4m",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "collection": "survey_results",
+      "key": "{{$trigger.keys}}",
+      "query": {
+        "filter": {
+          "_or": [
+            {
+              "status": {
+                "_eq": "submitted"
+              }
+            },
+            {
+              "status": {
+                "_eq": "approved"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "resolve": "8e90433e-15bc-4a6a-9b9a-1e78df3828a6",
+    "reject": null,
+    "flow": "fdaefe93-d76e-44a6-8b3e-e71078aebd56",
+    "date_created": "2023-11-14T08:02:01",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "35ca2033-b3e3-4464-ab47-47e91b629dd8",
+    "name": "Read Survey Data",
+    "key": "item_read_wurii",
+    "type": "item-read",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "collection": "survey",
+      "key": "{{ item_read_ujnjk.survey_information}}"
+    },
+    "resolve": "92c86567-9de5-490e-b491-69fc50ac87bc",
+    "reject": null,
+    "flow": "caa96378-1569-4af9-84d1-215137e9a917",
+    "date_created": "2023-11-17T11:58:11",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "43515bc8-ff46-477d-af72-4ead3fb10b34",
+    "name": "Read Data",
+    "key": "item_read_gnyrm",
+    "type": "item-read",
+    "position_x": 21,
+    "position_y": 1,
+    "options": {
+      "collection": "survey_results",
+      "key": "{{ $trigger.keys }}",
+      "query": {
+        "filter": {
+          "status": {
+            "_eq": "rejected"
+          }
+        }
+      }
+    },
+    "resolve": "7c10e73b-8eb6-4138-9fe4-29c55b7071c3",
+    "reject": null,
+    "flow": "f46cb985-43f7-400a-a088-77c7b3e97d5a",
+    "date_created": "2023-11-13T11:15:14",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "560ce155-150e-49ce-9c70-3e001870968b",
+    "name": "Create Data",
+    "key": "item_create_i75qe",
+    "type": "item-create",
+    "position_x": 73,
+    "position_y": 1,
+    "options": {
+      "collection": "notifications",
+      "payload": {
+        "status": "published",
+        "title": "{{ item_read_wurii.name }} needs Amendments",
+        "description": "Survey name: {{ item_read_wurii.name }} which was assigned to you requires amendments on the form. Please do the needful",
+        "published_date": "{{ date_format.payload.currentDate }}",
+        "expiry_date": "{{ date_format.payload.futureDate }}",
+        "staff": "{{item_read_wurii.staff}}",
+        "notification_type": "Requires Amendment"
+      }
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "caa96378-1569-4af9-84d1-215137e9a917",
+    "date_created": "2023-11-17T12:05:17",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "75e05fe3-7ec4-47fd-8268-a409fe2901d6",
+    "name": "Read Data",
+    "key": "item_read_six9y",
+    "type": "item-read",
+    "position_x": 39,
+    "position_y": 1,
+    "options": {
+      "collection": "region",
+      "key": "{{$trigger.payload.region}}"
+    },
+    "resolve": "85dcf8a3-6534-4e32-aa52-cb9180dbcd34",
+    "reject": null,
+    "flow": "af271226-0d6f-42b1-8cbc-62748d228a3c",
+    "date_created": "2023-11-13T17:17:31",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "7c10e73b-8eb6-4138-9fe4-29c55b7071c3",
+    "name": "Read Survey Data ",
+    "key": "item_read_1ftz2",
+    "type": "item-read",
+    "position_x": 38,
+    "position_y": 1,
+    "options": {
+      "collection": "survey",
+      "key": "{{ item_read_gnyrm.survey_information }}"
+    },
+    "resolve": "06beb0d0-cb19-4842-a2f8-afbf11ddd496",
+    "reject": null,
+    "flow": "f46cb985-43f7-400a-a088-77c7b3e97d5a",
+    "date_created": "2023-11-13T11:18:24",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "85dc50e6-f6da-480d-9327-f9618387838f",
+    "name": "Update Data",
+    "key": "item_update_le95k",
+    "type": "item-update",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "collection": "owned_survey_results",
+      "key": "{{$trigger.keys}}",
+      "payload": {
+        "if_yes_state_which_reason": null
+      }
+    },
+    "resolve": "eb67373d-2015-455a-8c57-18f961bca7df",
+    "reject": null,
+    "flow": "2b2aaa0a-9301-4eba-ae9d-ad62a60ca178",
+    "date_created": "2023-11-15T10:10:47",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "85dcf8a3-6534-4e32-aa52-cb9180dbcd34",
+    "name": "Create News",
+    "key": "create_news",
+    "type": "item-create",
+    "position_x": 59,
+    "position_y": 1,
+    "options": {
+      "collection": "notifications",
+      "payload": {
+        "status": "published",
+        "title": "{{ $trigger.payload.name }} assigned to you",
+        "description": "{{ $trigger.payload.name }}, is assigned to you in region {{item_read_six9y.name}} on {{ date_format.payload.current }}",
+        "published_date": "{{ date_format.payload.currentDate }}",
+        "expiry_date": "{{ date_format.payload.futureDate }}",
+        "staff": "{{ $trigger.payload.staff }}",
+        "notification_type": "Survey Assigned"
+      }
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "af271226-0d6f-42b1-8cbc-62748d228a3c",
+    "date_created": "2023-11-06T11:29:39",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "8e90433e-15bc-4a6a-9b9a-1e78df3828a6",
+    "name": "Update Data",
+    "key": "item_update_phy1v",
+    "type": "item-update",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "collection": "survey_results",
+      "key": "{{$trigger.keys}}",
+      "payload": {
+        "remarks": null
+      }
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "fdaefe93-d76e-44a6-8b3e-e71078aebd56",
+    "date_created": "2023-11-14T08:02:01",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "92c86567-9de5-490e-b491-69fc50ac87bc",
+    "name": "Date Format",
+    "key": "date_format",
+    "type": "exec",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(event, ctx) {\n\tconst currentDate = new Date();\n    currentDate.setHours(currentDate.getHours() + 4);\n    const formattedDate = currentDate.toISOString();\n    \n    //Get date one month from current date\n    //const current = new Date();\n    currentDate.setMonth(currentDate.getMonth() + 1);\n    const formattedMonth = currentDate.toISOString();\n \n\t\n    const payload = {\n      currentDate: formattedDate,\n      futureDate: formattedMonth,\n    };\n\n\treturn {payload};\n\n\n}"
+    },
+    "resolve": "560ce155-150e-49ce-9c70-3e001870968b",
+    "reject": null,
+    "flow": "caa96378-1569-4af9-84d1-215137e9a917",
+    "date_created": "2023-11-17T12:01:37",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "98d2c4a5-f5a4-46af-b83d-0cb7d3b95dd4",
+    "name": "Date Format",
+    "key": "date_format",
+    "type": "exec",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(data) {\n\tconst currentDate = new Date();\n    currentDate.setHours(currentDate.getHours() + 4);\n    const formattedDate = currentDate.toISOString();\n    \n    const date = new Date(formattedDate);\n\n    // Options for formatting\n    const options = { year: 'numeric', month: 'long', day: 'numeric' };\n\n    // Format the date using toLocaleDateString\n    const current = date.toLocaleDateString('en-US', options);\n    \n    //Get date one month from current date\n    //const current = new Date();\n    currentDate.setMonth(currentDate.getMonth() + 1);\n    const formattedMonth = currentDate.toISOString();\n \n\t\n    const payload = {\n      current: current,\n      currentDate: formattedDate,\n      futureDate: formattedMonth\n    };\n\n\treturn {payload};\n\n\n}"
+    },
+    "resolve": "75e05fe3-7ec4-47fd-8268-a409fe2901d6",
+    "reject": null,
+    "flow": "af271226-0d6f-42b1-8cbc-62748d228a3c",
+    "date_created": "2023-11-07T05:51:45",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "b241c520-226e-42e5-905f-e1693a0441cb",
+    "name": "Read Data",
+    "key": "item_read_ujnjk",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "collection": "survey_results",
+      "key": "{{ $trigger.keys }}",
+      "query": {
+        "filter": {
+          "status": {
+            "_eq": "amendment_required"
+          }
+        }
+      }
+    },
+    "resolve": "35ca2033-b3e3-4464-ab47-47e91b629dd8",
+    "reject": null,
+    "flow": "caa96378-1569-4af9-84d1-215137e9a917",
+    "date_created": "2023-11-17T11:58:11",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "cd162b30-5e3f-4229-ad4b-8552badf2564",
+    "name": "Send Email",
+    "key": "mail_z8lhw",
+    "type": "mail",
+    "position_x": 81,
+    "position_y": 1,
+    "options": {
+      "to": [
+        "divya.dowlut@mns.mu"
+      ],
+      "subject": "Survey Creation",
+      "body": "{{ $trigger.payload.name }} is created and assigned to you."
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "af271226-0d6f-42b1-8cbc-62748d228a3c",
+    "date_created": "2023-11-07T12:46:49",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "d5fd5dcc-cbac-40d4-947c-4a4b5f58427a",
+    "name": "Read Data",
+    "key": "item_read_v651y",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "collection": "owned_survey_results",
+      "key": "{{$trigger.keys}}",
+      "query": {
+        "filter": {
+          "have_you_ever_found_yourself_in_a_situation_where_you_had_to_discard_a_pet": {
+            "_eq": "no"
+          }
+        }
+      }
+    },
+    "resolve": "85dc50e6-f6da-480d-9327-f9618387838f",
+    "reject": null,
+    "flow": "2b2aaa0a-9301-4eba-ae9d-ad62a60ca178",
+    "date_created": "2023-11-15T10:06:33",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "ddfcdc41-9aa6-4982-be60-10b4a363fa2b",
+    "name": "Read Data",
+    "key": "item_read_16af2",
+    "type": "item-read",
+    "position_x": 18,
+    "position_y": 1,
+    "options": {
+      "collection": "survey",
+      "key": null,
+      "query": {
+        "filter": {
+          "_and": [
+            {
+              "status": {
+                "_eq": "published"
+              }
+            },
+            {
+              "end_date": {
+                "_lt": "$NOW"
+              }
+            },
+            {
+              "is_closed": {
+                "_eq": false
+              }
+            }
+          ]
+        }
+      },
+      "emitEvents": true
+    },
+    "resolve": "2d6277e0-3e1d-454b-ae8e-f0395fec3afc",
+    "reject": null,
+    "flow": "0b672575-b2d0-4dd0-b760-eacd11659d02",
+    "date_created": "2023-11-13T09:15:36",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "e7e3f2db-5c2d-4018-908d-ba34ad0c3dc2",
+    "name": "Read Data",
+    "key": "item_read_2bvlp",
+    "type": "item-read",
+    "position_x": 21,
+    "position_y": 1,
+    "options": {
+      "collection": "survey",
+      "query": null,
+      "key": "{{ $trigger.keys }}"
+    },
+    "resolve": "0882a060-e2b3-47c4-9b0e-09ee6832ba3c",
+    "reject": null,
+    "flow": "b03af108-e528-4251-8304-75c65bb2d515",
+    "date_created": "2023-11-13T10:16:50",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "eb67373d-2015-455a-8c57-18f961bca7df",
+    "name": "Read Data",
+    "key": "item_read_v651y_brsvo",
+    "type": "item-read",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "collection": "owned_survey_results",
+      "key": "{{$trigger.keys}}",
+      "query": {
+        "filter": {
+          "are_you_scared_of_stray_dogs": {
+            "_eq": "no"
+          }
+        }
+      }
+    },
+    "resolve": "f10e2a63-8e22-4d4b-8c66-0c01bedc2d8e",
+    "reject": null,
+    "flow": "2b2aaa0a-9301-4eba-ae9d-ad62a60ca178",
+    "date_created": "2023-11-15T10:21:56",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  },
+  {
+    "id": "f10e2a63-8e22-4d4b-8c66-0c01bedc2d8e",
+    "name": "Update Data",
+    "key": "item_update_le95k_bshyw",
+    "type": "item-update",
+    "position_x": 74,
+    "position_y": 1,
+    "options": {
+      "collection": "owned_survey_results",
+      "key": "{{$trigger.keys}}",
+      "payload": {
+        "if_yes_state_reason_why": null
+      }
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "2b2aaa0a-9301-4eba-ae9d-ad62a60ca178",
+    "date_created": "2023-11-15T10:21:56",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f"
+  }
+]

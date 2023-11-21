@@ -1,0 +1,186 @@
+[
+  {
+    "id": "0b672575-b2d0-4dd0-b760-eacd11659d02",
+    "name": "Update Survey",
+    "icon": "bolt",
+    "color": null,
+    "description": "Checks each survey and update is closed to true everyday at midnight if end date less than current date",
+    "status": "active",
+    "trigger": "schedule",
+    "accountability": "all",
+    "options": {
+      "cron": "0 0 * * *"
+    },
+    "operation": "ddfcdc41-9aa6-4982-be60-10b4a363fa2b",
+    "date_created": "2023-11-13T07:31:08",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "operations": [
+      "2d6277e0-3e1d-454b-ae8e-f0395fec3afc",
+      "ddfcdc41-9aa6-4982-be60-10b4a363fa2b"
+    ]
+  },
+  {
+    "id": "2b2aaa0a-9301-4eba-ae9d-ad62a60ca178",
+    "name": "Update Owned Survey Results",
+    "icon": "bolt",
+    "color": null,
+    "description": null,
+    "status": "inactive",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.update"
+      ],
+      "collections": [
+        "owned_survey_results"
+      ]
+    },
+    "operation": "d5fd5dcc-cbac-40d4-947c-4a4b5f58427a",
+    "date_created": "2023-11-15T10:04:34",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "operations": [
+      "85dc50e6-f6da-480d-9327-f9618387838f",
+      "d5fd5dcc-cbac-40d4-947c-4a4b5f58427a",
+      "eb67373d-2015-455a-8c57-18f961bca7df",
+      "f10e2a63-8e22-4d4b-8c66-0c01bedc2d8e"
+    ]
+  },
+  {
+    "id": "af271226-0d6f-42b1-8cbc-62748d228a3c",
+    "name": "Create and Send notifications when Created",
+    "icon": "bolt",
+    "color": null,
+    "description": "Create notifications and send email when a survey is created and assigned to user",
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.create"
+      ],
+      "collections": [
+        "survey"
+      ]
+    },
+    "operation": "98d2c4a5-f5a4-46af-b83d-0cb7d3b95dd4",
+    "date_created": "2023-11-06T10:33:19",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "operations": [
+      "75e05fe3-7ec4-47fd-8268-a409fe2901d6",
+      "85dcf8a3-6534-4e32-aa52-cb9180dbcd34",
+      "98d2c4a5-f5a4-46af-b83d-0cb7d3b95dd4",
+      "cd162b30-5e3f-4229-ad4b-8552badf2564"
+    ]
+  },
+  {
+    "id": "b03af108-e528-4251-8304-75c65bb2d515",
+    "name": "Update Notifications",
+    "icon": "bolt",
+    "color": null,
+    "description": "Update notification collection when staff is changed",
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.update"
+      ],
+      "collections": [
+        "survey"
+      ]
+    },
+    "operation": "e7e3f2db-5c2d-4018-908d-ba34ad0c3dc2",
+    "date_created": "2023-11-09T04:32:18",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "operations": [
+      "0882a060-e2b3-47c4-9b0e-09ee6832ba3c",
+      "e7e3f2db-5c2d-4018-908d-ba34ad0c3dc2"
+    ]
+  },
+  {
+    "id": "caa96378-1569-4af9-84d1-215137e9a917",
+    "name": "Send Notif when Survey Results need amendments",
+    "icon": "bolt",
+    "color": null,
+    "description": "Send Notifications when status in Suvey Results is set to \"Amendments Required\"",
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.update"
+      ],
+      "collections": [
+        "survey_results"
+      ]
+    },
+    "operation": "b241c520-226e-42e5-905f-e1693a0441cb",
+    "date_created": "2023-11-17T11:56:35",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "operations": [
+      "35ca2033-b3e3-4464-ab47-47e91b629dd8",
+      "560ce155-150e-49ce-9c70-3e001870968b",
+      "92c86567-9de5-490e-b491-69fc50ac87bc",
+      "b241c520-226e-42e5-905f-e1693a0441cb"
+    ]
+  },
+  {
+    "id": "f46cb985-43f7-400a-a088-77c7b3e97d5a",
+    "name": "Send notifications when Rejected",
+    "icon": "bolt",
+    "color": null,
+    "description": "Creates and Send notifications when a survey is rejected",
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.update"
+      ],
+      "collections": [
+        "survey_results"
+      ]
+    },
+    "operation": "43515bc8-ff46-477d-af72-4ead3fb10b34",
+    "date_created": "2023-11-09T05:52:21",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "operations": [
+      "06beb0d0-cb19-4842-a2f8-afbf11ddd496",
+      "0c2a3541-ebb3-4c14-8c2f-219dbd10b40d",
+      "43515bc8-ff46-477d-af72-4ead3fb10b34",
+      "7c10e73b-8eb6-4138-9fe4-29c55b7071c3"
+    ]
+  },
+  {
+    "id": "fdaefe93-d76e-44a6-8b3e-e71078aebd56",
+    "name": "Update Survey Results",
+    "icon": "bolt",
+    "color": null,
+    "description": null,
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.update"
+      ],
+      "collections": [
+        "survey_results"
+      ]
+    },
+    "operation": "336964be-d102-4583-b242-5bc1fff5b557",
+    "date_created": "2023-11-14T07:59:34",
+    "user_created": "494793b3-d325-43a8-8e1b-049b1cabe57f",
+    "operations": [
+      "336964be-d102-4583-b242-5bc1fff5b557",
+      "8e90433e-15bc-4a6a-9b9a-1e78df3828a6"
+    ]
+  }
+]
