@@ -35,7 +35,7 @@ services:
       database_DATABASE: 'postgres'
       database_USER: 'postgres'
       database_PASSWORD: 'postgres'
-      WEBSOCKETS_ENABLED: true
+      WEBSOCKETS_ENABLED: "true"
     networks:
       - msaw
     depends_on:
