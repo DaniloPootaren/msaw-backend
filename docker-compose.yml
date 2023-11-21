@@ -7,7 +7,7 @@ services:
       - 5432:5432
     networks:
       - msaw
-    # Required when running on platform other than amd64, like Apple M1/M2:
+    # Required when running on a platform other than amd64, like Apple M1/M2:
     # platform: linux/amd64
     volumes:
       - ./data/database:/var/lib/postgresql/data
@@ -30,12 +30,12 @@ services:
       ADMIN_EMAIL: "admin@example.com"
       ADMIN_PASSWORD: "password"
       database_CLIENT: "pg"
-      database_HOST: 'localhost'
+      database_HOST: 'database'  # Use the service name as the hostname
       database_PORT: '5432'
       database_DATABASE: 'postgres'
       database_USER: 'postgres'
       database_PASSWORD: 'postgres'
-      WEBSOCKETS_ENABLED: true
+      WEBSOCKETS_ENABLED: "true"  # Use a string instead of a boolean
     networks:
       - msaw
     depends_on:
@@ -44,8 +44,6 @@ services:
       - .env
 
 networks:
-  msaw: 
-     name: MSAW
-     driver: bridge
-
-      
+  msaw:
+    name: MSAW
+    driver: bridge
